@@ -1,8 +1,10 @@
-package vn.tien.photo_world;
+package vn.tien.photo_world.ui.activity;
+
+import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.os.Bundle;
+import vn.tien.photo_world.R;
 
 public class MainActivity extends AppCompatActivity {
 
