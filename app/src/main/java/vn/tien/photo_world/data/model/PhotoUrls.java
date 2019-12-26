@@ -1,11 +1,11 @@
 package vn.tien.photo_world.data.model;
 
 public class PhotoUrls {
-    private String mRaw ;
-    private String mFull ;
-    private String mRegular ;
-    private String mSmall ;
-    private String mThump ;
+    private String mRaw;
+    private String mFull;
+    private String mRegular;
+    private String mSmall;
+    private String mThump;
 
     public PhotoUrls(String raw, String full, String regular, String small, String thump) {
         this.mRaw = raw;
