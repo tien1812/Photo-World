@@ -1,37 +1,20 @@
 package vn.tien.photo_world.data.model;
 
-import java.util.List;
-
 public class Photo {
     private String mId;
-    private String mAuthor;
+    private Author mAuthor;
     private String mCreatDay;
-    private int mWidth;
-    private int mHeight;
     private String mDescription;
-    private PhotoUrls mUrls;
-    private PhotoLinks mLinks;
+    private PhotoUrl mUrls;
+    private PhotoLink mLinks;
 
-    public Photo(String mId,
-                 String mAuthor,
-                 String mCreatDay,
-                 int mWidth,
-                 int mHeight,
-                 String mDescription,
-                 PhotoUrls mUrls,
-                 PhotoLinks mLinks) {
-        this.mId = mId;
-        this.mAuthor = mAuthor;
-        this.mCreatDay = mCreatDay;
-        this.mWidth = mWidth;
-        this.mHeight = mHeight;
-        this.mDescription = mDescription;
-        this.mUrls = mUrls;
-        this.mLinks = mLinks;
-    }
-
-
-    public Photo() {
+    public Photo(String id, Author author, String creatDay, String description, PhotoUrl urls, PhotoLink links) {
+        mId = id;
+        mAuthor = author;
+        mCreatDay = creatDay;
+        mDescription = description;
+        mUrls = urls;
+        mLinks = links;
     }
 
     public String getId() {
@@ -39,15 +22,15 @@ public class Photo {
     }
 
     public void setId(String id) {
-        this.mId = id;
+        mId = id;
     }
 
-    public String getAuthor() {
+    public Author getAuthor() {
         return mAuthor;
     }
 
-    public void setAuthor(String author) {
-        this.mAuthor = author;
+    public void setAuthor(Author author) {
+        mAuthor = author;
     }
 
     public String getCreatDay() {
@@ -55,23 +38,7 @@ public class Photo {
     }
 
     public void setCreatDay(String creatDay) {
-        this.mCreatDay = creatDay;
-    }
-
-    public int getWidth() {
-        return mWidth;
-    }
-
-    public void setWidth(int width) {
-        this.mWidth = width;
-    }
-
-    public int getHeight() {
-        return mHeight;
-    }
-
-    public void setHeight(int height) {
-        this.mHeight = height;
+        mCreatDay = creatDay;
     }
 
     public String getDescription() {
@@ -79,23 +46,22 @@ public class Photo {
     }
 
     public void setDescription(String description) {
-        this.mDescription = description;
+        mDescription = description;
     }
 
-    public PhotoUrls getUrls() {
+    public PhotoUrl getUrls() {
         return mUrls;
     }
 
-    public void setUrls(PhotoUrls urls) {
-        this.mUrls = urls;
+    public void setUrls(PhotoUrl urls) {
+        mUrls = urls;
     }
 
-    public PhotoLinks getLinks() {
+    public PhotoLink getLinks() {
         return mLinks;
     }
 
-    public void setLinks(PhotoLinks links) {
-        this.mLinks = links;
+    public void setLinks(PhotoLink links) {
+        mLinks = links;
     }
-
 }

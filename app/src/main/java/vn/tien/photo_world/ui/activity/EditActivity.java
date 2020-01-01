@@ -1,5 +1,7 @@
 package vn.tien.photo_world.ui.activity;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -12,5 +14,10 @@ public class EditActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit);
+    }
+
+    public static Intent getIntent(Context context) {
+        Intent intent = new Intent(context, EditActivity.class);
+        return intent;
     }
 }

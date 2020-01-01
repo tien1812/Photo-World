@@ -9,9 +9,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import vn.tien.photo_world.R;
+import java.util.List;
 
-public class CollectionFragment extends Fragment {
+import vn.tien.photo_world.R;
+import vn.tien.photo_world.data.model.Collection;
+import vn.tien.photo_world.data.source.DataSource;
+
+public class CollectionFragment extends Fragment implements DataSource.OnFetchDataListener<Collection> {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -19,5 +23,19 @@ public class CollectionFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_collection, container, false);
         return view;
+    }
+
+    @Override
+    public void onFetchDataSuccess(List data) {
+
+    }
+
+    @Override
+    public void onFetchDataFailure(Exception e) {
+
+    }
+
+
+    public void beginSearch(String newText) {
     }
 }
