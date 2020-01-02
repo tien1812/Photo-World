@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="muoisau">16dp</dimen>
-    <dimen name="tam">8dp</dimen>
-    <dimen name="bonmuoi">40dp</dimen>
-    <dimen name="haibon">24sp</dimen>
-    <dimen name="haimuoi">20dp</dimen>
-    <dimen name="khong">0dp</dimen>
+    <dimen name="dp_16">16dp</dimen>
+    <dimen name="dp_20">20dp</dimen>
+    <dimen name="dp_8">8dp</dimen>
+    <dimen name="dp_0">0dp</dimen>
+    <dimen name="dp_40">40dp</dimen>
+    <dimen name="sp_24">24sp</dimen>
 </resources>

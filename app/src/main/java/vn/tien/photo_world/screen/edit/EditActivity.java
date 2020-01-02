@@ -1,4 +1,4 @@
-package vn.tien.photo_world.ui.activity;
+package vn.tien.photo_world.screen.edit;
 
 import android.content.Context;
 import android.content.Intent;

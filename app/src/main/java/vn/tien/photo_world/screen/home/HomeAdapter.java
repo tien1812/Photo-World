@@ -1,4 +1,4 @@
-package vn.tien.photo_world.adapters;
+package vn.tien.photo_world.screen.home;
 
 import android.content.Context;
 import android.content.Intent;
@@ -17,13 +17,13 @@ import java.util.List;
 
 import vn.tien.photo_world.R;
 import vn.tien.photo_world.data.model.Photo;
-import vn.tien.photo_world.ui.activity.EditActivity;
+import vn.tien.photo_world.screen.edit.EditActivity;
 
-public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.ViewHolder> {
+public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
     private List<Photo> mPhotos;
     private Context mConText;
 
-    public PhotoAdapter(Context context, List<Photo> photos) {
+    public HomeAdapter(Context context, List<Photo> photos) {
         mPhotos = photos;
         mConText = context;
     }
@@ -45,7 +45,7 @@ public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.ViewHolder> 
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Photo photo = mPhotos.get(position);
         holder.mTextName.setText(photo.getAuthor().getName());
-        holder.mTextDate.setText(photo.getCreatDay());
+        holder.mTextDate.setText(photo.getCreateDay());
         holder.mTextDescrip.setText(photo.getDescription());
 
         Glide.with(holder.mPhoto.getContext()).load(photo.getUrls().getFull())

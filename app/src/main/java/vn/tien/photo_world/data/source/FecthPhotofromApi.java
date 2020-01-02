@@ -25,10 +25,10 @@ import vn.tien.photo_world.data.model.PhotoLink;
 import vn.tien.photo_world.data.model.PhotoUrl;
 
 public class FecthPhotofromApi extends AsyncTask<String, Void, List<Photo>> {
-    private DataSource.OnFetchDataListener<Photo> mListener;
+    private PhotoDataSource.OnFetchDataListener<Photo> mListener;
     private Exception mException;
 
-    public void setListener(DataSource.OnFetchDataListener<Photo> listener) {
+    public FecthPhotofromApi(PhotoDataSource.OnFetchDataListener listener) {
         mListener = listener;
     }
 

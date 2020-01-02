@@ -1,4 +1,4 @@
-package vn.tien.photo_world.ui.fragment;
+package vn.tien.photo_world.screen.collection;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,13 +9,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import java.util.List;
-
 import vn.tien.photo_world.R;
-import vn.tien.photo_world.data.model.Collection;
-import vn.tien.photo_world.data.source.DataSource;
 
-public class CollectionFragment extends Fragment implements DataSource.OnFetchDataListener<Collection> {
+public class CollectionFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -25,17 +21,7 @@ public class CollectionFragment extends Fragment implements DataSource.OnFetchDa
         return view;
     }
 
-    @Override
-    public void onFetchDataSuccess(List data) {
-
-    }
-
-    @Override
-    public void onFetchDataFailure(Exception e) {
-
-    }
-
-
     public void beginSearch(String newText) {
+
     }
 }

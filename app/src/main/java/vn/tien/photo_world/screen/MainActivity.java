@@ -1,4 +1,4 @@
-package vn.tien.photo_world.ui.activity;
+package vn.tien.photo_world.screen;
 
 import android.app.SearchManager;
 import android.content.Context;
@@ -23,8 +23,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import vn.tien.photo_world.R;
-import vn.tien.photo_world.ui.fragment.CollectionFragment;
-import vn.tien.photo_world.ui.fragment.HomeFragment;
+import vn.tien.photo_world.screen.collection.CollectionFragment;
+import vn.tien.photo_world.screen.home.HomeFragment;
 
 public class MainActivity extends AppCompatActivity {
     private Toolbar mToolbar;

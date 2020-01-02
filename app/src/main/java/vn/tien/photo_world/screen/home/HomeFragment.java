@@ -1,9 +1,10 @@
-package vn.tien.photo_world.ui.fragment;
+package vn.tien.photo_world.screen.home;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -15,17 +16,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import vn.tien.photo_world.R;
-import vn.tien.photo_world.adapters.PhotoAdapter;
-import vn.tien.photo_world.constant.Constant;
 import vn.tien.photo_world.data.model.Photo;
-import vn.tien.photo_world.data.source.DataSource;
-import vn.tien.photo_world.data.source.FecthPhotofromApi;
 
-public class HomeFragment extends Fragment implements DataSource.OnFetchDataListener<Photo> {
+public class HomeFragment extends Fragment implements HomeContract.View {
     private RecyclerView mRecyclerView;
-    private PhotoAdapter mAdapter;
+    private HomeAdapter mAdapter;
     private static final String TAG = HomeFragment.class.getSimpleName();
     private List<Photo> mPhotoList = new ArrayList<>();
+    private HomePresenter mHomePresenter;
 
     @Nullable
     @Override
@@ -36,26 +34,27 @@ public class HomeFragment extends Fragment implements DataSource.OnFetchDataList
         mRecyclerView = view.findViewById(R.id.recycler_home);
         mRecyclerView.setLayoutManager(new GridLayoutManager(getContext(), 1));
         mRecyclerView.setHasFixedSize(true);
+        mHomePresenter = new HomePresenter(this);
+        mHomePresenter.getPhoto();
         return view;
     }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        FecthPhotofromApi fecthPhotofromApi = new FecthPhotofromApi();
-        fecthPhotofromApi.setListener(this);
-        fecthPhotofromApi.execute(Constant.BASE_URL);
     }
 
     @Override
-    public void onFetchDataSuccess(List<Photo> data) {
-        mAdapter = new PhotoAdapter(getContext(), data);
+    public void onGetPhotoSuccess(List<Photo> photo) {
+        mAdapter = new HomeAdapter(getContext(), photo);
         mRecyclerView.setAdapter(mAdapter);
-        mPhotoList = data;
+        mAdapter.notifyDataSetChanged();
+        mPhotoList = photo;
     }
 
     @Override
-    public void onFetchDataFailure(Exception e) {
+    public void onGetDataFailure(String message) {
+        Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
     }
 
     public void beginSearch(String newText) {
@@ -74,4 +73,6 @@ public class HomeFragment extends Fragment implements DataSource.OnFetchDataList
         }
         return filteredPhotos;
     }
+
+
 }
