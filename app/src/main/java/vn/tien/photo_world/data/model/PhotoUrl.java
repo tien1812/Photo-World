@@ -1,21 +1,19 @@
 package vn.tien.photo_world.data.model;
 
-public class PhotoUrls {
+public class PhotoUrl {
+
     private String mRaw;
     private String mFull;
     private String mRegular;
     private String mSmall;
-    private String mThump;
+    private String mThumb;
 
-    public PhotoUrls(String raw, String full, String regular, String small, String thump) {
-        this.mRaw = raw;
-        this.mFull = full;
-        this.mRegular = regular;
-        this.mSmall = small;
-        this.mThump = thump;
-    }
-
-    public PhotoUrls() {
+    public PhotoUrl(String raw, String full, String regular, String small, String thumb) {
+        mRaw = raw;
+        mFull = full;
+        mRegular = regular;
+        mSmall = small;
+        mThumb = thumb;
     }
 
     public String getRaw() {
@@ -23,7 +21,7 @@ public class PhotoUrls {
     }
 
     public void setRaw(String raw) {
-        this.mRaw = raw;
+        mRaw = raw;
     }
 
     public String getFull() {
@@ -31,7 +29,7 @@ public class PhotoUrls {
     }
 
     public void setFull(String full) {
-        this.mFull = full;
+        mFull = full;
     }
 
     public String getRegular() {
@@ -39,7 +37,7 @@ public class PhotoUrls {
     }
 
     public void setRegular(String regular) {
-        this.mRegular = regular;
+        mRegular = regular;
     }
 
     public String getSmall() {
@@ -47,14 +45,14 @@ public class PhotoUrls {
     }
 
     public void setSmall(String small) {
-        this.mSmall = mSmall;
+        mSmall = small;
     }
 
-    public String getThump() {
-        return mThump;
+    public String getThumb() {
+        return mThumb;
     }
 
-    public void setThump(String thump) {
-        this.mThump = thump;
+    public void setThumb(String thumb) {
+        mThumb = thumb;
     }
 }

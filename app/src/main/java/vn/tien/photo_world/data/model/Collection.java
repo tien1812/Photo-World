@@ -7,25 +7,14 @@ public class Collection {
     private String mAuthor;
     private int mTotalPhotos;
     private Photo mCoverPhoto;
-    private CollectionLinks mLinks;
 
-    public Collection(int id,
-                      String title,
-                      String description,
-                      String author,
-                      int totalPhotos,
-                      Photo coverPhoto,
-                      CollectionLinks links) {
-        this.mId = id;
-        this.mTitle = title;
-        this.mDescription = description;
-        this.mAuthor = author;
-        this.mTotalPhotos = totalPhotos;
-        this.mCoverPhoto = coverPhoto;
-        this.mLinks = links;
-    }
-
-    public Collection() {
+    public Collection(int id, String title, String description, String author, int totalPhotos, Photo coverPhoto) {
+        mId = id;
+        mTitle = title;
+        mDescription = description;
+        mAuthor = author;
+        mTotalPhotos = totalPhotos;
+        mCoverPhoto = coverPhoto;
     }
 
     public int getId() {
@@ -33,7 +22,7 @@ public class Collection {
     }
 
     public void setId(int id) {
-        this.mId = id;
+        mId = id;
     }
 
     public String getTitle() {
@@ -41,7 +30,7 @@ public class Collection {
     }
 
     public void setTitle(String title) {
-        this.mTitle = title;
+        mTitle = title;
     }
 
     public String getDescription() {
@@ -49,7 +38,7 @@ public class Collection {
     }
 
     public void setDescription(String description) {
-        this.mDescription = description;
+        mDescription = description;
     }
 
     public String getAuthor() {
@@ -57,7 +46,7 @@ public class Collection {
     }
 
     public void setAuthor(String author) {
-        this.mAuthor = author;
+        mAuthor = author;
     }
 
     public int getTotalPhotos() {
@@ -65,7 +54,7 @@ public class Collection {
     }
 
     public void setTotalPhotos(int totalPhotos) {
-        this.mTotalPhotos = totalPhotos;
+        mTotalPhotos = totalPhotos;
     }
 
     public Photo getCoverPhoto() {
@@ -73,14 +62,6 @@ public class Collection {
     }
 
     public void setCoverPhoto(Photo coverPhoto) {
-        this.mCoverPhoto = coverPhoto;
-    }
-
-    public CollectionLinks getLinks() {
-        return mLinks;
-    }
-
-    public void setLinks(CollectionLinks links) {
-        this.mLinks = links;
+        mCoverPhoto = coverPhoto;
     }
 }

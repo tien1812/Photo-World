@@ -1,4 +1,4 @@
-package vn.tien.photo_world.ui.fragment;
+package vn.tien.photo_world.screen.collection;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,13 +11,17 @@ import androidx.fragment.app.Fragment;
 
 import vn.tien.photo_world.R;
 
-public class HomeFragment extends Fragment {
+public class CollectionFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_home, container, false);
+        View view = inflater.inflate(R.layout.fragment_collection, container, false);
         return view;
+    }
+
+    public void beginSearch(String newText) {
+
     }
 }
