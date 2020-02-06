@@ -1,7 +1,7 @@
 package vn.tien.photo_world.data.repository;
 
-import vn.tien.photo_world.data.source.PhotoDataSource;
-import vn.tien.photo_world.data.source.PhotoRemoteDataSource;
+import vn.tien.photo_world.data.source.photo.PhotoDataSource;
+import vn.tien.photo_world.data.source.photo.PhotoRemoteDataSource;
 
 public class PhotoRepository {
     private static PhotoRepository sInstance;
