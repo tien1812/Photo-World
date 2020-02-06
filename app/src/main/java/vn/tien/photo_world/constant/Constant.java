@@ -7,4 +7,5 @@ public class Constant {
 
     public static final String BREAK_LINE = "\n";
     public static final String PHOTO_URL = "https://api.unsplash.com/photos/?client_id=";
+    public static final String COLLECTION_URL = "https://api.unsplash.com/collections/?client_id=";
 }

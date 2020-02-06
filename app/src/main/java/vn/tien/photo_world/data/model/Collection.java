@@ -1,28 +1,22 @@
 package vn.tien.photo_world.data.model;
 
 public class Collection {
-    private int mId;
     private String mTitle;
     private String mDescription;
-    private String mAuthor;
+    private String mPulished;
+    private Author mAuthor;
     private int mTotalPhotos;
     private Photo mCoverPhoto;
 
-    public Collection(int id, String title, String description, String author, int totalPhotos, Photo coverPhoto) {
-        mId = id;
+    public Collection(String title, String description,
+                      String pulished, Author author,
+                      int totalPhotos, Photo coverPhoto) {
         mTitle = title;
         mDescription = description;
+        mPulished = pulished;
         mAuthor = author;
         mTotalPhotos = totalPhotos;
         mCoverPhoto = coverPhoto;
-    }
-
-    public int getId() {
-        return mId;
-    }
-
-    public void setId(int id) {
-        mId = id;
     }
 
     public String getTitle() {
@@ -41,11 +35,19 @@ public class Collection {
         mDescription = description;
     }
 
-    public String getAuthor() {
+    public String getPulished() {
+        return mPulished;
+    }
+
+    public void setPulished(String pulished) {
+        mPulished = pulished;
+    }
+
+    public Author getAuthor() {
         return mAuthor;
     }
 
-    public void setAuthor(String author) {
+    public void setAuthor(Author author) {
         mAuthor = author;
     }
 

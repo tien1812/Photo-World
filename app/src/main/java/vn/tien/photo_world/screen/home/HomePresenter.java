@@ -4,7 +4,7 @@ import java.util.List;
 
 import vn.tien.photo_world.data.model.Photo;
 import vn.tien.photo_world.data.repository.PhotoRepository;
-import vn.tien.photo_world.data.source.PhotoDataSource;
+import vn.tien.photo_world.data.source.photo.PhotoDataSource;
 
 public class HomePresenter implements HomeContract.Presenter,
         PhotoDataSource.OnFetchDataListener<Photo> {

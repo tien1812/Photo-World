@@ -1,4 +1,4 @@
-package vn.tien.photo_world.data.source;
+package vn.tien.photo_world.data.source.photo;
 
 import java.util.List;
 
