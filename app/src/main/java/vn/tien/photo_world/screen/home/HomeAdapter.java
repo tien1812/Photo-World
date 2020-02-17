@@ -49,7 +49,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
         holder.mTextDescrip.setText(photo.getDescription());
 
         Glide.with(holder.mPhoto.getContext()).load(photo.getUrls().getFull())
-                .fitCenter()
+                .centerCrop()
                 .into(holder.mPhoto);
         holder.mPhoto.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -2,13 +2,13 @@ package vn.tien.photo_world.data.model;
 
 public class Photo {
     private String mId;
-    private Author mAuthor;
+    private User mAuthor;
     private String mCreateDay;
     private String mDescription;
     private PhotoUrl mUrls;
     private PhotoLink mLinks;
 
-    public Photo(String id, Author author, String createDay, String description, PhotoUrl urls, PhotoLink links) {
+    public Photo(String id, User author, String createDay, String description, PhotoUrl urls, PhotoLink links) {
         mId = id;
         mAuthor = author;
         mCreateDay = createDay;
@@ -25,11 +25,11 @@ public class Photo {
         mId = id;
     }
 
-    public Author getAuthor() {
+    public User getAuthor() {
         return mAuthor;
     }
 
-    public void setAuthor(Author author) {
+    public void setAuthor(User author) {
         mAuthor = author;
     }
 

@@ -2,22 +2,9 @@ package vn.tien.photo_world.data.model;
 
 public class Collection {
     private String mTitle;
-    private String mDescription;
-    private String mPulished;
-    private Author mAuthor;
+    private User mUser;
     private int mTotalPhotos;
-    private Photo mCoverPhoto;
-
-    public Collection(String title, String description,
-                      String pulished, Author author,
-                      int totalPhotos, Photo coverPhoto) {
-        mTitle = title;
-        mDescription = description;
-        mPulished = pulished;
-        mAuthor = author;
-        mTotalPhotos = totalPhotos;
-        mCoverPhoto = coverPhoto;
-    }
+    private PhotoUrl mUrl;
 
     public String getTitle() {
         return mTitle;
@@ -27,28 +14,12 @@ public class Collection {
         mTitle = title;
     }
 
-    public String getDescription() {
-        return mDescription;
+    public User getUser() {
+        return mUser;
     }
 
-    public void setDescription(String description) {
-        mDescription = description;
-    }
-
-    public String getPulished() {
-        return mPulished;
-    }
-
-    public void setPulished(String pulished) {
-        mPulished = pulished;
-    }
-
-    public Author getAuthor() {
-        return mAuthor;
-    }
-
-    public void setAuthor(Author author) {
-        mAuthor = author;
+    public void setUser(User user) {
+        mUser = user;
     }
 
     public int getTotalPhotos() {
@@ -59,11 +30,18 @@ public class Collection {
         mTotalPhotos = totalPhotos;
     }
 
-    public Photo getCoverPhoto() {
-        return mCoverPhoto;
+    public PhotoUrl getUrl() {
+        return mUrl;
     }
 
-    public void setCoverPhoto(Photo coverPhoto) {
-        mCoverPhoto = coverPhoto;
+    public void setUrl(PhotoUrl url) {
+        mUrl = url;
+    }
+
+    public Collection(String title, User user, int totalPhotos, PhotoUrl url) {
+        mTitle = title;
+        mUser = user;
+        mTotalPhotos = totalPhotos;
+        mUrl = url;
     }
 }

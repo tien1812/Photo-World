@@ -1,9 +1,9 @@
 package vn.tien.photo_world.data.model;
 
-public class Author {
+public class User {
     private String mName ;
 
-    public Author(String name) {
+    public User(String name) {
         mName = name;
     }
 

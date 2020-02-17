@@ -9,7 +9,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -32,16 +32,12 @@ public class HomeFragment extends Fragment implements HomeContract.View {
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         mRecyclerView = view.findViewById(R.id.recycler_home);
-        mRecyclerView.setLayoutManager(new GridLayoutManager(getContext(), 1));
+        final LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+        mRecyclerView.setLayoutManager(layoutManager);
         mRecyclerView.setHasFixedSize(true);
         mHomePresenter = new HomePresenter(this);
         mHomePresenter.getPhoto();
         return view;
-    }
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
     }
 
     @Override
