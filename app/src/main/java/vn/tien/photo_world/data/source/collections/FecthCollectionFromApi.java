@@ -17,14 +17,11 @@ import java.util.List;
 import vn.tien.photo_world.constant.AuthorEntity;
 import vn.tien.photo_world.constant.CollectionEntity;
 import vn.tien.photo_world.constant.Constant;
-import vn.tien.photo_world.constant.LinksEntity;
 import vn.tien.photo_world.constant.PhotoEntity;
 import vn.tien.photo_world.constant.UrlsEntity;
-import vn.tien.photo_world.data.model.Author;
 import vn.tien.photo_world.data.model.Collection;
-import vn.tien.photo_world.data.model.Photo;
-import vn.tien.photo_world.data.model.PhotoLink;
 import vn.tien.photo_world.data.model.PhotoUrl;
+import vn.tien.photo_world.data.model.User;
 
 public class FecthCollectionFromApi extends AsyncTask<String, Void, List<Collection>> {
     private CollectionDataSource.OnFetchDataListener mListener;
@@ -68,40 +65,25 @@ public class FecthCollectionFromApi extends AsyncTask<String, Void, List<Collect
     private List<Collection> getCollectionFromStringData(String data) throws JSONException {
         List<Collection> collections = new ArrayList<>();
         JSONArray jsonArray = new JSONArray(data);
-        for (int i = 0; i <= jsonArray.length(); i++) {
+        for (int i = 0; i < jsonArray.length(); i++) {
             JSONObject jsonObject = (JSONObject) jsonArray.get(i);
             String title = jsonObject.getString(CollectionEntity.TITLE);
-            String description = jsonObject.getString(CollectionEntity.DESCRIPTION);
-            String pulished = jsonObject.getString(CollectionEntity.PULISHED);
             int totalPhoto = jsonObject.getInt(CollectionEntity.TOTAL_PHOTOS);
 
-            JSONObject jsonAuthor = jsonObject.getJSONObject(CollectionEntity.AUTHOR);
-            String nameAuthor = jsonAuthor.getString(AuthorEntity.NAME);
-            Author author = new Author(nameAuthor);
+            JSONObject jsonUser = jsonObject.getJSONObject(CollectionEntity.AUTHOR);
+            String nameAuthor = jsonUser.getString(AuthorEntity.NAME);
+            User author = new User(nameAuthor);
 
-            JSONObject jsonPhoto = jsonObject.getJSONObject(CollectionEntity.PHOTO);
-            String id = jsonObject.getString(PhotoEntity.ID);
-            String creat = jsonObject.getString(PhotoEntity.CREAT_DAY);
-            String description1 = jsonObject.getString(PhotoEntity.DESCRIPTION);
-
-            JSONObject jsonUrls = jsonObject.getJSONObject(PhotoEntity.PHOTO_URL);
-            String raw = jsonUrls.getString(UrlsEntity.RAW);
-            String regular = jsonUrls.getString(UrlsEntity.REGULAR);
-            String full = jsonUrls.getString(UrlsEntity.FULL);
-            String small = jsonUrls.getString(UrlsEntity.SMALL);
-            String thumb = jsonUrls.getString(UrlsEntity.THUMB);
+            JSONObject jsonCoverPhoto = jsonObject.getJSONObject(CollectionEntity.COVER_PHOTO);
+            JSONObject jsonUrl = jsonCoverPhoto.getJSONObject(PhotoEntity.PHOTO_URL);
+            String raw = jsonUrl.getString(UrlsEntity.RAW);
+            String full = jsonUrl.getString(UrlsEntity.FULL);
+            String regular = jsonUrl.getString(UrlsEntity.REGULAR);
+            String small = jsonUrl.getString(UrlsEntity.SMALL);
+            String thumb = jsonUrl.getString(UrlsEntity.THUMB);
             PhotoUrl photoUrl = new PhotoUrl(raw, full, regular, small, thumb);
 
-            JSONObject jsonLinks = jsonObject.getJSONObject(PhotoEntity.PHOTO_LINK);
-            String self = jsonLinks.getString(LinksEntity.SELF);
-            String html = jsonLinks.getString(LinksEntity.HTML);
-            String location = jsonLinks.getString(LinksEntity.LOCATION);
-            PhotoLink photoLink = new PhotoLink(self, html, location);
-
-            Photo photo = new Photo(id, author, creat, description1, photoUrl, photoLink);
-
-            Collection collection = new Collection(title, description,
-                    pulished, author, totalPhoto, photo);
+            Collection collection = new Collection(title, author, totalPhoto, photoUrl);
             collections.add(collection);
         }
         return collections;

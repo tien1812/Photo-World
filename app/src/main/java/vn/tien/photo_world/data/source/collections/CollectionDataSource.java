@@ -13,6 +13,6 @@ public interface CollectionDataSource {
     }
 
     interface RemoteDataSource {
-        void getPhoto(PhotoDataSource.OnFetchDataListener listener);
+        void getCollection(CollectionDataSource.OnFetchDataListener listener);
     }
 }

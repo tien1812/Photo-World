@@ -19,7 +19,7 @@ import vn.tien.photo_world.constant.Constant;
 import vn.tien.photo_world.constant.LinksEntity;
 import vn.tien.photo_world.constant.PhotoEntity;
 import vn.tien.photo_world.constant.UrlsEntity;
-import vn.tien.photo_world.data.model.Author;
+import vn.tien.photo_world.data.model.User;
 import vn.tien.photo_world.data.model.Photo;
 import vn.tien.photo_world.data.model.PhotoLink;
 import vn.tien.photo_world.data.model.PhotoUrl;
@@ -57,7 +57,7 @@ public class FecthPhotofromApi extends AsyncTask<String, Void, List<Photo>> {
 
             JSONObject jsonUser = jsonObject.getJSONObject(PhotoEntity.AUTHOR);
             String name_author = jsonUser.getString(AuthorEntity.NAME);
-            Author author = new Author(name_author);
+            User author = new User(name_author);
 
             JSONObject jsonUrls = jsonObject.getJSONObject(PhotoEntity.PHOTO_URL);
             String raw = jsonUrls.getString(UrlsEntity.RAW);
