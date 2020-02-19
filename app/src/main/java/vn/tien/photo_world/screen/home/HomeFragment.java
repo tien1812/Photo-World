@@ -19,9 +19,9 @@ import vn.tien.photo_world.R;
 import vn.tien.photo_world.data.model.Photo;
 
 public class HomeFragment extends Fragment implements HomeContract.View {
+    private static final String TAG = HomeFragment.class.getSimpleName();
     private RecyclerView mRecyclerView;
     private HomeAdapter mAdapter;
-    private static final String TAG = HomeFragment.class.getSimpleName();
     private List<Photo> mPhotoList = new ArrayList<>();
     private HomePresenter mHomePresenter;
 

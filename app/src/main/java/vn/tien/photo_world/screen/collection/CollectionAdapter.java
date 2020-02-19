@@ -1,6 +1,7 @@
 package vn.tien.photo_world.screen.collection;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +16,9 @@ import com.bumptech.glide.Glide;
 import java.util.List;
 
 import vn.tien.photo_world.R;
+import vn.tien.photo_world.constant.Constant;
 import vn.tien.photo_world.data.model.Collection;
+import vn.tien.photo_world.screen.wallpapers.WallpapersActivity;
 
 public class CollectionAdapter extends RecyclerView.Adapter<CollectionAdapter.ViewHolder> {
     private List<Collection> mCollections;
@@ -41,7 +44,7 @@ public class CollectionAdapter extends RecyclerView.Adapter<CollectionAdapter.Vi
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Collection collection = mCollections.get(position);
+        final Collection collection = mCollections.get(position);
         holder.mTextAuthor.setText(collection.getUser().getName());
         holder.mTextTitle.setText(collection.getTitle());
         holder.mTextTotal.setText(collection.getTotalPhotos() + " Photos");
@@ -49,6 +52,19 @@ public class CollectionAdapter extends RecyclerView.Adapter<CollectionAdapter.Vi
         Glide.with(holder.mImageCover).load(collection.getUrl().getFull())
                 .centerCrop()
                 .into(holder.mImageCover);
+        holder.mImageCover.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String url = collection.getCollectionHtml().getHtml();
+                sendData(url);
+            }
+        });
+    }
+
+    private void sendData(String url) {
+        Intent intent = WallpapersActivity.getIntent(mContext);
+        intent.putExtra(Constant.KEY_HTML,url);
+        mContext.startActivity(intent);
     }
 
     @Override

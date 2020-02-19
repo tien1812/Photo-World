@@ -16,6 +16,7 @@ import com.bumptech.glide.Glide;
 import java.util.List;
 
 import vn.tien.photo_world.R;
+import vn.tien.photo_world.constant.Constant;
 import vn.tien.photo_world.data.model.Photo;
 import vn.tien.photo_world.screen.edit.EditActivity;
 
@@ -43,10 +44,9 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Photo photo = mPhotos.get(position);
+        final Photo photo = mPhotos.get(position);
         holder.mTextName.setText(photo.getAuthor().getName());
         holder.mTextDate.setText(photo.getCreateDay());
-        holder.mTextDescrip.setText(photo.getDescription());
 
         Glide.with(holder.mPhoto.getContext()).load(photo.getUrls().getFull())
                 .centerCrop()
@@ -54,11 +54,19 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
         holder.mPhoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = EditActivity.getIntent(mConText);
-                mConText.startActivity(intent);
+                String url = photo.getUrls().getFull();
+                String author = photo.getAuthor().getName();
+                sendData(url, author);
             }
         });
 
+    }
+
+    private void sendData(String url, String author) {
+        Intent intent = EditActivity.getIntent(mConText);
+        intent.putExtra(Constant.KEY_IMAGE, url);
+        intent.putExtra(Constant.KEY_AUTHOR, author);
+        mConText.startActivity(intent);
     }
 
     @Override
@@ -70,14 +78,12 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
         private ImageView mPhoto;
         private TextView mTextName;
         private TextView mTextDate;
-        private TextView mTextDescrip;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             mPhoto = itemView.findViewById(R.id.image_photo);
             mTextName = itemView.findViewById(R.id.text_name);
             mTextDate = itemView.findViewById(R.id.text_date);
-            mTextDescrip = itemView.findViewById(R.id.text_descrip);
         }
     }
 }

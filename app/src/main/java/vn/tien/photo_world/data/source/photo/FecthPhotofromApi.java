@@ -19,10 +19,10 @@ import vn.tien.photo_world.constant.Constant;
 import vn.tien.photo_world.constant.LinksEntity;
 import vn.tien.photo_world.constant.PhotoEntity;
 import vn.tien.photo_world.constant.UrlsEntity;
-import vn.tien.photo_world.data.model.User;
 import vn.tien.photo_world.data.model.Photo;
 import vn.tien.photo_world.data.model.PhotoLink;
 import vn.tien.photo_world.data.model.PhotoUrl;
+import vn.tien.photo_world.data.model.User;
 
 public class FecthPhotofromApi extends AsyncTask<String, Void, List<Photo>> {
     private PhotoDataSource.OnFetchDataListener<Photo> mListener;
@@ -53,7 +53,6 @@ public class FecthPhotofromApi extends AsyncTask<String, Void, List<Photo>> {
             JSONObject jsonObject = (JSONObject) jsonArray.get(i);
             String id = jsonObject.getString(PhotoEntity.ID);
             String creat = jsonObject.getString(PhotoEntity.CREAT_DAY);
-            String description = jsonObject.getString(PhotoEntity.DESCRIPTION);
 
             JSONObject jsonUser = jsonObject.getJSONObject(PhotoEntity.AUTHOR);
             String name_author = jsonUser.getString(AuthorEntity.NAME);
@@ -73,7 +72,7 @@ public class FecthPhotofromApi extends AsyncTask<String, Void, List<Photo>> {
             String location = jsonLinks.getString(LinksEntity.LOCATION);
             PhotoLink photoLink = new PhotoLink(self, html, location);
 
-            Photo photo = new Photo(id, author, creat, description, photoUrl, photoLink);
+            Photo photo = new Photo(id, author, creat, photoUrl, photoLink);
 
             photos.add(photo);
 

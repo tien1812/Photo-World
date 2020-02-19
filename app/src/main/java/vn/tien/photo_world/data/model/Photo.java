@@ -4,15 +4,13 @@ public class Photo {
     private String mId;
     private User mAuthor;
     private String mCreateDay;
-    private String mDescription;
     private PhotoUrl mUrls;
     private PhotoLink mLinks;
 
-    public Photo(String id, User author, String createDay, String description, PhotoUrl urls, PhotoLink links) {
+    public Photo(String id, User author, String createDay, PhotoUrl urls, PhotoLink links) {
         mId = id;
         mAuthor = author;
         mCreateDay = createDay;
-        mDescription = description;
         mUrls = urls;
         mLinks = links;
     }
@@ -39,14 +37,6 @@ public class Photo {
 
     public void setCreateDay(String createDay) {
         mCreateDay = createDay;
-    }
-
-    public String getDescription() {
-        return mDescription;
-    }
-
-    public void setDescription(String description) {
-        mDescription = description;
     }
 
     public PhotoUrl getUrls() {

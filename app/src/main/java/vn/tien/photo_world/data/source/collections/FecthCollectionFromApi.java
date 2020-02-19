@@ -17,9 +17,11 @@ import java.util.List;
 import vn.tien.photo_world.constant.AuthorEntity;
 import vn.tien.photo_world.constant.CollectionEntity;
 import vn.tien.photo_world.constant.Constant;
+import vn.tien.photo_world.constant.LinksEntity;
 import vn.tien.photo_world.constant.PhotoEntity;
 import vn.tien.photo_world.constant.UrlsEntity;
 import vn.tien.photo_world.data.model.Collection;
+import vn.tien.photo_world.data.model.CollectionHtml;
 import vn.tien.photo_world.data.model.PhotoUrl;
 import vn.tien.photo_world.data.model.User;
 
@@ -83,7 +85,12 @@ public class FecthCollectionFromApi extends AsyncTask<String, Void, List<Collect
             String thumb = jsonUrl.getString(UrlsEntity.THUMB);
             PhotoUrl photoUrl = new PhotoUrl(raw, full, regular, small, thumb);
 
-            Collection collection = new Collection(title, author, totalPhoto, photoUrl);
+            JSONObject jsonLink =jsonObject.getJSONObject(CollectionEntity.LINK);
+            String html =jsonLink.getString(LinksEntity.HTML);
+            CollectionHtml collectionHtml = new CollectionHtml(html);
+
+            Collection collection =
+                    new Collection(title, author, totalPhoto, photoUrl,collectionHtml);
             collections.add(collection);
         }
         return collections;

@@ -5,6 +5,15 @@ public class Collection {
     private User mUser;
     private int mTotalPhotos;
     private PhotoUrl mUrl;
+    private CollectionHtml mCollectionHtml;
+
+    public Collection(String title, User user, int totalPhotos, PhotoUrl url, CollectionHtml collectionHtml) {
+        mTitle = title;
+        mUser = user;
+        mTotalPhotos = totalPhotos;
+        mUrl = url;
+        mCollectionHtml = collectionHtml;
+    }
 
     public String getTitle() {
         return mTitle;
@@ -38,10 +47,11 @@ public class Collection {
         mUrl = url;
     }
 
-    public Collection(String title, User user, int totalPhotos, PhotoUrl url) {
-        mTitle = title;
-        mUser = user;
-        mTotalPhotos = totalPhotos;
-        mUrl = url;
+    public CollectionHtml getCollectionHtml() {
+        return mCollectionHtml;
+    }
+
+    public void setCollectionHtml(CollectionHtml collectionHtml) {
+        mCollectionHtml = collectionHtml;
     }
 }

@@ -10,4 +10,10 @@
     <dimen name="dp_52">52dp</dimen>
     <dimen name="sp_20">20sp</dimen>
     <dimen name="dp_88">88dp</dimen>
+    <dimen name="dp_24">24dp</dimen>
+    <dimen name="dp_36">36dp</dimen>
+    <dimen name="dp_112">112dp</dimen>
+    <dimen name="dp_4">4dp</dimen>
+    <dimen name="dp_56">56dp</dimen>
+    <dimen name="dp_160">160dp</dimen>
 </resources>
